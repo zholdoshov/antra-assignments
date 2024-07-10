@@ -1,0 +1,123 @@
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.container {
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 800px;
+    margin: 20px;
+}
+
+form {
+    max-width: 100%;
+    margin: 0 auto;
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.col {
+    display: flex;
+    flex-direction: column;
+    padding: 0px 10px 0px 10px;
+    margin-bottom: 15px;
+}
+
+.row {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.col-50 {
+    flex: 1;
+    padding: 0 10px;
+    box-sizing: border-box;
+}
+
+.col-20 {
+    flex: 1;
+    justify-content: flex-start;
+}
+
+.col-70 {
+    flex: 3;
+    justify-content: end;
+}
+
+input[type="text"],
+input[type="tel"],
+input[type="email"],
+input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-top: 5px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+#termsAndCond {
+    font-size: 12px;
+    line-height: 1.5;
+    text-align: justify;
+}
+
+#registerTxtBtn {
+    color: white;
+    font-size: 12px;
+    padding: 2px;
+    border-radius: 3px;
+    background-color: #318CE7;
+}
+
+.button {
+    width: 100%;
+    padding: 10px;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.button-primary {
+    background-color: #318CE7;
+}
+
+.button-green {
+    background-color: #38a638;
+}
+
+.button-primary:hover {
+    background-color: deepskyblue;
+}
+
+.button-green:hover {
+    background-color: #44ea62;
+}
+
+@media (max-width: 768px) {
+    
+    .col-50 {
+        flex: 100%;
+        padding: 0;
+        padding: 0 10px;
+    }
+
+    .row {
+        flex-direction: column;
+    }
+
+    #termsAndCond {
+        text-align: left;
+    }
+}

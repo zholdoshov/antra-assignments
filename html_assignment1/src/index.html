@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>HTML Assignment 1</title>
+    <link href="./style.css" rel="stylesheet" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+    <div class="container">
+        <form>
+            <h1>Sign Up</h1>
+            <div class="row">
+                <div class="col col-50">
+                    <input id="firstName" type="text" placeholder="First Name" name="fName" required>
+                </div>
+                <div class="col col-50">
+                    <input id="lastName" type="text" placeholder="Last Name" name="lName" required>
+                </div>
+            </div>
+            <div class="col">
+                <input id="mobileNumber" type="tel" placeholder="Mobile No." name="mobNumber" required>
+            </div>
+            <div class="col">
+                <input id="emailAddress" type="email" placeholder="Email Address" name="emailAdd" required>
+            </div>
+            <div class="row">
+                <div class="col col-50">
+                    <input id="password" type="password" placeholder="Password" name="pswd" required>
+                </div>
+                <div class="col col-50">
+                    <input id="confirmPassword" type="password" placeholder="Confirm Password" name="confPswd" required>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-20">
+                    <label>
+                        <input id="agreeCheckBox" type="checkbox" required> <b>I Agree</b>
+                    </label>
+                </div>
+                <div class="col col-70">
+                    <span><i>By clicking <span id="registerTxtBtn">Register</span>, you are agreeing to the <a href="#" style="color:dodgerblue; text-decoration: none;">Terms and Conditions</a> set out by this site, including our Cookie Use.</i></span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col col-50">
+                    <button class="button button-primary" type="button">Register</button>
+                </div>
+                <div class="col col-50">
+                    <button class="button button-green" type="button">Sign In</button>
+                </div>
+            </div>
+        </form>
+    </div>
+</body>
+</html>
