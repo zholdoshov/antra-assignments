@@ -1,0 +1,74 @@
+1. Why are closures useful in JavaScript? Give an example use case.
+Answer: Using closures we can create private variables. In some cases we have 
+to make the variables or methods private to follow the data privacy and security.
+For example:
+function createBankAccount(intialBalance) {
+    let balance = intialBalance;
+    return {
+        deposit: function(amount) {
+            if (amount > 0) {
+                balance += amount;
+                console.log('Deposited: ${amount}. Balance: ${balance}');
+            } else {
+                consloe.log('Error');
+            }
+        }
+    }
+}
+
+const bankAccount = createBankAccount(10);
+
+bankAccount.deposit(20);
+bankAccount.deposit(-50);
+
+
+2. When should you choose to use “let” or “const”
+Answer: If we want to create a variables that only lives inside the block scope we can use 
+"let" or "const". We use "let" if we want to reassign it later, but we use "const" for contant 
+variables like ID's or variables that shouldn't be changed in the future. We cannot redeclare 
+"let" and "const" which is more safe and useful than "var". For example we have 500 LOC and we 
+created var x in line 20, then we forgot about it and in line 345 we created var x again, 
+in this case JavaScript won't give an error about the redeclaration.
+
+3. Give an example of a common mistake related to hoisting and explain how to fix it.
+Answer: A common mistake related to hoisting is using a variables before thay are declared. 
+When using a "var" it leads to unexpected behavior. Simply "var" moves to the top of it's 
+function scope and reclares as undefined. To fix this we can use "let" or "const".
+For example:
+console.log(name); // undefined
+var name = "Nurulla";
+console.log(name); // Nurulla
+
+console.log(lastName); // Gives an error
+let lastName = "Zholdoshov";
+
+4. What will the outcome of each console.log() be after the function calls? Why?
+const arr = [1, 2];
+function foo1(arg) {
+  arg.push(3);
+}
+foo1(arr);
+console.log(arr); // [1, 2, 3] arr passed by reference, push() modifies the original arr
+
+function foo2(arg) {
+  arg = [1, 2, 3, 4];
+}
+foo2(arr);
+console.log(arr); // [1, 2, 3] it creates new array inside foo2  and it doesn't affect the arr 
+                    outside function
+
+function foo3(arg) {
+  let b = arg;
+  b.push(3);
+}
+foo3(arr);
+console.log(arr); // [1, 2, 3, 3] the variable b and arr points to the same reference and push 
+                    modifies the original arr
+
+function foo4(arg) {
+  let b = arg;
+  b = [1, 2, 3, 4];
+}
+foo4(arr);
+console.log(arr); // [1, 2, 3, 3] first b and arr pointed to the same reference then b 
+                    reassigned to a new array so the output will be the original arr

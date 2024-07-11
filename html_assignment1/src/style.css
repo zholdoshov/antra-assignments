@@ -46,6 +46,7 @@ h1 {
 
 .col-20 {
     flex: 1;
+    margin-left: -10px;
     justify-content: flex-start;
 }
 
