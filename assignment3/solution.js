@@ -1,12 +1,12 @@
 
-// Prototype - every function in Javascript has a 'prototype' property. It's an object that is 
-// used for inheritance. Simply all object created from this function will inherit all methods 
+// Prototype - Every function in JavaScript has a 'prototype' property. It's an object that is 
+// used for inheritance. Simply, all objects created from this function will inherit all methods 
 // and properties.
 
-// Prototype chain - It's a mechanism where Javascript objects inherit features from one another. 
-// When you try to access a property or method on an object, Javascript first look for it on the 
-// object itslef, if it doesn't find there it will look at the pbject's prototype, and then 
-// prototpye's prototype, and so on.
+// Prototype chain - It's a mechanism where JavaScript objects inherit features from one another. 
+// When you try to access a property or a method on an object, JavaScript first looks for it on the 
+// object itself. If it doesn't find it there, it will look at the object's prototype, and then 
+// the prototype's prototype, and so on.
 
 // map()
 Array.prototype.myMap = function(callbackfn, thisArg) {
