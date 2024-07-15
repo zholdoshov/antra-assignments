@@ -10,13 +10,9 @@
 
 // map()
 Array.prototype.myMap = function(callbackfn, thisArg) {
-    let currContext = this;
-    if (thisArg !== undefined) {
-        currContext = thisArg;
-    }
     let newArray = [];
     for (let i = 0; i < this.length; i++) {
-        newArray[i] = callbackfn(currContext[i], i, currContext);
+        newArray[i] = callbackfn(thisArg, this[i], i, this);
     }
     return newArray;
 }
@@ -30,14 +26,10 @@ const mappedArr = arrForMap.myMap((value, index, array) => {
 
 // filter
 Array.prototype.myFilter = function(predicate, thisArg) {
-    let currContext = this;
-    if (thisArg !== undefined) {
-        currContext = thisArg;
-    }
     let newArray = [];
     let j = 0;
     for (let i = 0; i < this.length; i++) {
-        if (predicate(currContext[i], i, currContext) === true) {
+        if (predicate(thisArg, thisArg[i], i, thisArg) === true) {
             newArray[j] = currContext[i];
             j++;
         }
@@ -52,6 +44,12 @@ const resultOfFilter = arrForFilter.myFilter((elem) => elem % 2 === 0);
 
 // reduce
 Array.prototype.myReduce = function(callbackfn, initialValue) {
+    if (this.length === 0 && initValue !== undefined) {
+        return initValue;
+    }
+    if (this.length === 1 && initValue === undefined) {
+        return this[0];
+    }
     let accumulator;
     let i;
     if (initialValue !== undefined) {
@@ -76,12 +74,8 @@ const resultOfReduce = arrForReduce.myReduce((accumulator, currentValue) => accu
 
 // every
 Array.prototype.myEvery = function(predicate, thisArg) {
-    let currContext = this;
-    if (thisArg !== undefined) {
-        currContext = thisArg;
-    }
     for (let i = 0; i < this.length; i++) {
-        if (predicate(currContext[i], i, currContext) === false) {
+        if (predicate(thisArg, this[i], i, this) === false) {
             return false;
         }
     }
@@ -95,12 +89,8 @@ const resultOfEvery = arrForEvery.every((element) => element > 0);
 
 // find()
 Array.prototype.myFind = function(predicate, thisArg) {
-    let currContext = this;
-    if (thisArg !== undefined) {
-        currContext = undefined;
-    }
     for (let i = 0; i < this.length; i++) {
-        if (predicate(currContext[i], i, currContext) === true) {
+        if (predicate(this, this[i], i, this) === true) {
             return currContext[i];
         }
     }
@@ -221,3 +211,44 @@ Array.prototype.mySlice = function(paramStart, paramEnd) {
 const arrForSlice = [1, 2, 3, 4, 5, 6];
 const slicedArr = arrForSlice.mySlice(-3, -1);
 // console.log(slicedArr);
+
+
+// sort
+Array.prototype.mySort = function(compareFn){
+    const swap = (arr, i, j) => {
+        const temp = arr[i];
+        arr[i] = arr[j];
+        arr[j] = temp;
+    }
+
+    const partition = (arr, low, high) => {
+        let pivot = arr[high];
+
+        let i = (low - 1);
+        for (let j = low; j <= high; j++) {
+            if (arr[j] < pivot) {
+                i++;
+                swap(arr, i, j);
+            }
+        }
+        swap(arr, i + 1, high);
+        return (i + 1);
+    }
+
+    const quickSort = (arr, low, high) => {
+        if (low < high) {
+            const pivot_location = partition(arr, low, high);
+            quickSort(arr, low, pivot_location - 1);
+            quickSort(arr, pivot_location + 1, high);
+        }
+    }
+    let newArray = [];
+    this.length = newArray.length;
+    newArray = quickSort(this, 0, this.length - 1);
+    newArray.forEach((value, index) => {
+        this[index] = value;
+    });
+}
+
+const array1 = [3, 1, 9, 5];
+console.log(array1.mySort());
