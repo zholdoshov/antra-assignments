@@ -29,8 +29,8 @@ Array.prototype.myFilter = function(predicate, thisArg) {
     let newArray = [];
     let j = 0;
     for (let i = 0; i < this.length; i++) {
-        if (predicate(thisArg, thisArg[i], i, thisArg) === true) {
-            newArray[j] = currContext[i];
+        if (predicate(thisArg, this[i], i, this) === true) {
+            newArray[j] = this[i];
             j++;
         }
     }
@@ -90,8 +90,8 @@ const resultOfEvery = arrForEvery.every((element) => element > 0);
 // find()
 Array.prototype.myFind = function(predicate, thisArg) {
     for (let i = 0; i < this.length; i++) {
-        if (predicate(this, this[i], i, this) === true) {
-            return currContext[i];
+        if (predicate(thisArg, this[i], i, this) === true) {
+            return this[i];
         }
     }
     return undefined;
