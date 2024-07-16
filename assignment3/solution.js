@@ -192,11 +192,11 @@ const ref = arrToReverse.reverse();
 
 // slice
 Array.prototype.mySlice = function(paramStart, paramEnd) {
-    let start = paramStart;
-    let end = paramEnd;
+    let start = 0;
+    let end = this.length;
     let newArray = [];
-    if (paramStart === undefined) start = 0;
-    if (paramEnd === undefined) end = this.length;
+    if (paramStart !== undefined) start = paramStart;
+    if (paramEnd !== undefined) end = paramEnd;
     if (paramStart < 0) start = this.length + paramStart;
     if (paramEnd < 0) end = this.length + paramEnd;
     if (end < start) return newArray;
@@ -242,13 +242,9 @@ Array.prototype.mySort = function(compareFn){
             quickSort(arr, pivot_location + 1, high);
         }
     }
-    let newArray = [];
-    this.length = newArray.length;
-    newArray = quickSort(this, 0, this.length - 1);
-    newArray.forEach((value, index) => {
-        this[index] = value;
-    });
+    quickSort(this, 0, this.length - 1);
+    return this;
 }
 
-const array1 = [3, 1, 9, 5];
-console.log(array1.mySort());
+const array1 = [3, 1, 9, 5, 6, 2, 9, 0, 1, 23, 45, 12];
+// console.log(array1.mySort());
