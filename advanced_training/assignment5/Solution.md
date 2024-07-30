@@ -1,4 +1,4 @@
-# Assignemnt 5 (Advanced Training)
+# Assignment 5 (Advanced Training)
 
 ## What’s package.json and package-lock.json?
 
