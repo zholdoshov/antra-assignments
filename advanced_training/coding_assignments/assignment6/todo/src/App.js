@@ -9,7 +9,6 @@ function App() {
     if (newTodoValue !== "") {
       const newTodos = [...todos, { title: newTodoValue }];
       setTodos(newTodos);
-      console.log(newTodos);
     } else {
       alert("Invalid input!");
     }
