@@ -1,0 +1,90 @@
+:root {
+  --container-bg-color: rgb(226, 231, 226);
+  --button-danger-color: rgb(168, 12, 12);
+  --button-danger-color-hover: rgb(237, 45, 45);
+  --button-submit-color: green;
+  --button-submit-color-hover: rgb(10, 190, 10);
+  --button-text-color: ;
+  --container-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+body {
+  padding-top: 50px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.todo-container {
+  width: 40vw;
+  background-color: var(--container-bg-color);
+  box-shadow: var(--container-box-shadow);
+  border-radius: 8px;
+  height: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  justify-content: start;
+}
+
+.todo-container h2 {
+  margin: 10px 0 10px 0;
+}
+
+.hr {
+  width: 100%;
+  text-align: left;
+  margin-left: 0;
+}
+
+.todo-form {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 0 10px 0;
+}
+
+.button {
+  border-radius: 5px;
+  font-size: medium;
+  color: white;
+  border: none;
+  padding: 10px;
+}
+
+.todo--delete-btn {
+  background-color: var(--button-danger-color);
+}
+
+.todo--delete-btn:hover {
+  background-color: var(--button-danger-color-hover);
+}
+
+.todo--add-btn {
+  background-color: var(--button-submit-color);
+}
+
+.todo--add-btn:hover {
+  background-color: var(--button-submit-color-hover);
+}
+
+.todo-form .todo-input {
+  width: 80%;
+  font-size: large;
+}
+
+.todo-item {
+  padding: 5px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.todo-title {
+  width: 80%;
+  justify-self: start;
+  padding: 10px 10px 0 0;
+  font-size: large;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
