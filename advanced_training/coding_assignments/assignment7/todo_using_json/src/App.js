@@ -1,33 +1,51 @@
 import "./App.css";
 import { useEffect, useRef, useState } from "react";
 import Todo from "./components/Todo/Todo";
+import { getTodos, createTodo, updateTodo, deleteTodo } from "./apis/APIs";
 
 function App() {
   const [todos, setTodos] = useState([]);
 
+  useEffect(() => {
+    getTodos().then((fetchedTodos) => setTodos(fetchedTodos));
+  }, []);
+
   const addNewTodo = (newTodoValue) => {
     if (newTodoValue !== "") {
-      const newTodos = [
-        ...todos,
-        { id: todos.length + 1, title: newTodoValue },
-      ];
-      setTodos(newTodos);
+      const newTodos = { title: newTodoValue };
+      createTodo(newTodos).then((createdTodo) => {
+        setTodos([...todos, createdTodo]);
+      });
     } else {
       alert("Invalid input!");
     }
   };
 
   const deleteHandler = (id) => {
-    const newTodos = todos.filter((todo) => todo.id !== id);
-    setTodos(newTodos);
+    deleteTodo(id).then(() => {
+      const newTodos = todos.filter((todo) => todo.id !== id);
+      getTodos().then(() => {
+        setTodos(newTodos);
+      });
+    });
   };
 
-  // useEffect(() => {
-  //   setInterval(() => {
-  //     console.log(temp);
-  //   }, 1000);
-  //   console.log("todos changed");
-  // }, [temp]);
+  const editTodoHandler = (id, updatedTitle) => {
+    const updatedTodos = todos.map((todo) =>
+      todo.id === id
+        ? { ...todo, title: updatedTitle, isEditable: !todo.isEditable }
+        : todo
+    );
+    setTodos(updatedTodos);
+  };
+
+  const updateTodoHandler = (id, updatedTitle) => {
+    updateTodo(id, updatedTitle).then(() => {
+      getTodos().then((data) => {
+        setTodos(data);
+      });
+    });
+  };
 
   const flag = true;
 
@@ -42,6 +60,8 @@ function App() {
               <Todo
                 todo={todo}
                 deleteHandler={() => deleteHandler(todo.id)}
+                editTodoHandler={editTodoHandler}
+                updateTodoHandler={updateTodoHandler}
                 key={todo.id}
               />
             );

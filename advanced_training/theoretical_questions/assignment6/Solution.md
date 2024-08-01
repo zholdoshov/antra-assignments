@@ -1,4 +1,4 @@
-# Assignment 5 (Advanced Training)
+# Assignment 6 (Advanced Training)
 
 ## What is `useState`?
 
@@ -6,9 +6,9 @@ Hooks are special functions in React that help us write organized, clean, and un
 
 ## What is props drilling and state lifting?
 
-`props drilling` is a situation where we pass props from the top of the DOM tree all the way down to the nodes below in the tree.
+`props drilling` is a situation where we pass props from the top of the React component tree all the way down to the nodes below in the tree.
 
-`state lifting` is the opposite of `props drilling`. In state lifting, we pass state from the lower nodes up to the top nodes of the DOM tree or to other parts of the DOM tree.
+`state lifting` is the opposite of `props drilling`. In state lifting, we pass state from the lower nodes up to the top nodes of the React component tree or to other parts of the React component tree.
 
 ## What is the `key` attribute?
 
@@ -20,4 +20,4 @@ Synthetic events in React are cross-browser wrappers around the browser's origin
 
 ## What is virtual dom?
 
-How does rendering happen in React? React handles rendering for us, but it's important to understand how it works because sometimes bad code can cause infinite re-renders, which can crash our app. React uses a Virtual DOM (a.k.a. `VDOM`) that knows when and how to render our application. It's a representation of the original DOM. When an update happens, React creates a Virtual DOM and then compares it (using a `diffing` algorithm) with the previous Virtual DOM. React updates the original DOM only where changes occurred. The process that updates the real DOM is called `reconciliation`.
+React uses a Virtual DOM (a.k.a. `VDOM`) that knows when and how to render our application. It's a representation of the original DOM. When an update happens, React creates a Virtual DOM and then compares it (using a `diffing` algorithm) with the previous Virtual DOM. React updates the original DOM only where changes occurred. The process that updates the real DOM is called `reconciliation`.
