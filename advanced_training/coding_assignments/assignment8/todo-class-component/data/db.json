@@ -1,0 +1,20 @@
+{
+  "todos": [
+    {
+      "id": "05ee",
+      "title": "a title"
+    },
+    {
+      "id": "72c0",
+      "title": "Lorem ipsum"
+    },
+    {
+      "id": "c2d1",
+      "title": "finish the assignment7 by 11:00 PM"
+    },
+    {
+      "id": "6848",
+      "title": "Hello World!"
+    }
+  ]
+}
