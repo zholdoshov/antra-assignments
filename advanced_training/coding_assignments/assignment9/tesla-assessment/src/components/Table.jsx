@@ -15,37 +15,44 @@ const data = [
 
 export default function Table() {
 
-    const headers = Object.keys(data[0]);
-    const salesByRegion = data.reduce((acc, item) => {
-        if (!acc[item.region]) {
-            acc[item.region] = 0;
-        }
-        acc[item.region] += item.sales;
-        return acc;
-    }, {});
+  const headers = Object.keys(data[0]);
 
-    console.log(salesByRegion);
+  const groupedData = data.reduce((acc, item) => {
+    if (!acc[item.region]) {
+      acc[item.region] = { totalSales: 0, items: [] };
+    }
+    acc[item.region].totalSales += item.sales;
+    acc[item.region].items.push(item);
+    return acc;
+  }, {});
 
   return (
     <div>
       <table>
         <thead>
           <tr>
-            {headers.map((header) => {
-                return <th className='table-header' key={header}>{header}</th>
-            })}
+            {headers.map((header) => (
+              <th key={header}>{header}</th>
+            ))}
           </tr>
         </thead>
         <tbody>
-            {data.map((item, index) => {
-                return (
-                    <tr key={index}>
-                        {headers.map((header) => {
-                            return <td key={header}>{item[header]}</td>
-                        })}
-                    </tr>
-                )
-            })}
+          {Object.entries(groupedData).map(([region, { totalSales, items }]) => (
+            <React.Fragment key={region}>
+              <tr>
+                <td>{region}</td>
+                <td>sum</td>
+                <td>{totalSales}</td>
+              </tr>
+              {items.map((item, index) => (
+                <tr key={index}>
+                  {headers.map((header) => (
+                    <td key={header}>{item[header]}</td>
+                  ))}
+                </tr>
+              ))}
+            </React.Fragment>
+          ))}
         </tbody>
       </table>
     </div>

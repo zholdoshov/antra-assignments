@@ -1,3 +1,20 @@
 .App {
   text-align: center;
 }
+
+body {
+  padding: 0;
+  margin: 0;
+}
+
+.app {
+  padding: 10% 10px;
+  display: flex;
+  justify-content: space-around;
+}
+
+table,
+th,
+td {
+  border: 1px solid;
+}
