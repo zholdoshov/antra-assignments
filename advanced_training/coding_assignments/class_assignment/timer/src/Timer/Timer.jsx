@@ -7,6 +7,7 @@ const Timer = () => {
   const [minutes, setMinutes] = useState(0);
   const [seconds, setSeconds] = useState(0);
   const [time, setTime] = useState(0);
+  const [pause, setPause] = useState(false);
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
@@ -34,15 +35,22 @@ const Timer = () => {
   };
 
   const handlePause = () => {
-    setIsRunning(false);
+    if(isRunning) {
+      setIsRunning(false);
+      setPause(true);
+    }
   };
 
   const handleResume = () => {
-    setIsRunning(true);
+    if(pause) {
+      setIsRunning(true);
+      setPause(false);
+    }
   };
 
   const handleReset = () => {
     setIsRunning(false);
+    setPause(false);
     if (minutes >= 0 && seconds >= 0) {
       setTime(minutes * 60 + seconds);
     }

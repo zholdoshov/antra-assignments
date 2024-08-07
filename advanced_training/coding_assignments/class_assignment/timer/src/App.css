@@ -1,12 +1,39 @@
 .App {
-  height: 80vh;
   text-align: center;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 40px;
+}
+
+button {
+  padding: 5px 10px;
 }
 
 .timer-container {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+  margin-bottom: 5%;
+  padding: 20px;
+  border: 2px solid rebeccapurple;
+  border-radius: 15px;
+  width: 600px;
+}
+
+.stopwatch-container {
+  padding: 10px;
+  border: 2px solid rebeccapurple;
+  border-radius: 15px;
+  width: 400px;
+}
+
+.stopwatch-container div {
+  padding: 10px 0;
+}
+
+#stopwatch-display {
+  font-size: xx-large;
+}
+
+.laps-container ul {
+  list-style: none;
 }
