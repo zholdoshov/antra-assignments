@@ -3,7 +3,7 @@ import Car from './Car'
 import { useMySelector, useMyDispatch } from './MyProvider';
 
 export default function CarsApp() {
-  const cars = useMySelector((state) => state);
+  const cars = useMySelector((state) => state.cars);
   const dispatch = useMyDispatch();
   console.log(cars);
 

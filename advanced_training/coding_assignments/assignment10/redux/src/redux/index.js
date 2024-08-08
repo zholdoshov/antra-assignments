@@ -1,25 +1,27 @@
-export const carsInitialValue = [
-  {
-    id: 1,
-    name: "Toyota",
-    quantity: 10,
-  },
-  {
-    id: 2,
-    name: "Nissan",
-    quantity: 10,
-  },
-  {
-    id: 3,
-    name: "Ford",
-    quantity: 10,
-  },
-];
+export const carsInitialValue = {
+  cars: [
+    {
+      id: 1,
+      name: "Toyota",
+      quantity: 10,
+    },
+    {
+      id: 2,
+      name: "Nissan",
+      quantity: 10,
+    },
+    {
+      id: 3,
+      name: "Ford",
+      quantity: 10,
+    },
+  ],
+};
 
-export const carsReducer = (state = carsInitialValue, { type, payload }) => {
+export const carsReducer = (state, { type, payload }) => {
   switch (type) {
-    case "SELL":
-      return state.map((car) => {
+    case "SELL": {
+      const newCars = state.cars.map((car) => {
         if (car.id === payload && car.quantity > 0) {
           return {
             ...car,
@@ -29,8 +31,10 @@ export const carsReducer = (state = carsInitialValue, { type, payload }) => {
           return car;
         }
       });
-    case "ADD":
-      return state.map((car) => {
+      return { ...state, cars: newCars };
+    }
+    case "ADD": {
+      const newCars = state.cars.map((car) => {
         if (car.id === payload) {
           return {
             ...car,
@@ -40,6 +44,8 @@ export const carsReducer = (state = carsInitialValue, { type, payload }) => {
           return car;
         }
       });
+      return { ...state, cars: newCars };
+    }
     default:
       return state;
   }
