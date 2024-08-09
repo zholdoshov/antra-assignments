@@ -2,7 +2,7 @@
 
 ## What is FLUX?
 
-It's a pattern (architecure) for managing state in our application. It has four major components:
+It's a architecure pattern for building client side applications. This pattern allows us to manage our application's state in a predictable and one way directional data flow. It has four major components:
 
 ![alt text](image-1.png)
 
@@ -10,8 +10,6 @@ It's a pattern (architecure) for managing state in our application. It has four 
 - **Store** - It is where the state of the application is stored. It receives actions from dispatcher and updates its states.
 - **Views** (React Componeents) - These are React Components, they are responsible for rendering the UI based on the data provided by the store.
 - **Actions** - These are user events or any event that can trigger the dispatcher to update the store.
-
-This pattern allows us to manage our application's state in a predictable and one way directional data flow.
 
 ## What is Redux? How do you use it with React components?
 
