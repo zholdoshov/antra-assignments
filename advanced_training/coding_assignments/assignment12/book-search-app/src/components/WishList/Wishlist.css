@@ -1,0 +1,35 @@
+.wishlist-container {
+    width: 100%;
+}
+
+.wishlist-title-btn {
+    background-color: #ededed;
+    padding: 10px;
+    margin-top: 10px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    border: 1px ridge grey;
+    border-radius: 10px;
+    box-shadow: 10px 5px 5px gray;
+    transition: 1s;
+}
+
+.wishlist-title-btn:hover {
+    transform: scale(1.05);
+}
+
+.wishlist-title-btn li {
+    list-style: none;
+    padding: 5px;
+}
+
+.wishlist-title-btn button {
+    background-color: red;
+    border-color: red;
+    border-radius: 5px;
+    color: #fff;
+    padding: 5px;
+    max-height: 30px;
+}

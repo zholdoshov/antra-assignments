@@ -2,6 +2,7 @@ import React from 'react'
 import { MdFavorite } from "react-icons/md";
 import { addToWishlist } from '../../features/search/searchSlice';
 import { useDispatch, useSelector } from 'react-redux';
+import "./BookCard.css"
 const imgNotFound = 'https://www.shutterstock.com/image-vector/no-image-available-vector-illustration-260nw-744886198.jpg';
 
 export default function BookCard({book}) {

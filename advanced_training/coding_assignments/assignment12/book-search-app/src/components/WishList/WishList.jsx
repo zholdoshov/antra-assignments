@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromWishList } from '../../features/search/searchSlice';
+import "./Wishlist.css"
 
 export default function Wishlist() {
   const wishlist = useSelector((state) => state.books.wishlist);

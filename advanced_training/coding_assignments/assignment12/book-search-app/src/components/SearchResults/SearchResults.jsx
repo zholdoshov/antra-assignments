@@ -1,6 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import BookCard from './BookCard'
+import "./SearchResults.css"
 
 export default function SearchResults() {
   const { books, loading } = useSelector(state => state.books);

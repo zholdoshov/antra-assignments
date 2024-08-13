@@ -1,0 +1,6 @@
+.results-container {
+    padding-top: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
