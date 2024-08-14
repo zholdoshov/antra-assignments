@@ -1,0 +1,17 @@
+:root {
+  --primary-color: dodgerblue;
+}
+
+.App {
+  padding: 5%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left-col {
+  width: 70%;
+}
+
+.right-col {
+  width: 25%;
+}
