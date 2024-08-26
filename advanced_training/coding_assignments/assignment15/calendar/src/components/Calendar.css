@@ -1,0 +1,60 @@
+.calendar {
+    padding-top: 10vh;
+    text-align: center;
+    width: 700px;
+    margin: auto;
+}
+
+.header {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    align-items: center;
+    padding: 10px 0;
+}
+
+.days-of-week,
+.dates-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    text-align: center;
+}
+
+.day-name {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    padding: 10px;
+    background-color: #aaaaaa;
+    border: 1px solid #ddd;
+}
+
+.current-month {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 20px;
+    padding: 10px;
+    background-color: #ddd;
+    border: 1px solid #ddd;
+}
+
+.day,
+.empty {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 50px;
+    padding: 10px;
+    border: 1px solid #ddd;
+}
+
+.day {
+    cursor: pointer;
+    background-color: #f9f9f9;
+}
+
+.day:hover {
+    background-color: #e0e0e0;
+}
