@@ -1,0 +1,40 @@
+.movies {
+    width: 100vw;
+    display: grid;
+    grid-template-columns: 30% 30% 30%;
+    row-gap: 1rem;
+    column-gap: 1rem;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.pagination button {
+    margin: 0 5px;
+    padding: 10px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+}
+
+.pagination span {
+    margin: 0 10px;
+    padding: 10px;
+}
+
+@media only screen and (max-width: 768px) {
+    .movies {
+        width: 100vw;
+        grid-template-columns: 50% 50%;
+    }
+}
